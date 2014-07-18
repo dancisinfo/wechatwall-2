@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.configuration.Configuration;
+import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.httpclient.Cookie;
 import org.apache.commons.httpclient.Header;
 import org.apache.commons.httpclient.HttpClient;
@@ -64,6 +67,13 @@ public class WeChat {
 	private String loginUser;
 	private String loginPwd;
 	public boolean isLogin = false;
+
+	public WeChat() throws ConfigurationException {
+		Configuration config = new PropertiesConfiguration(
+				"constants.properties");
+		this.loginUser = config.getString("username");
+		this.loginPwd = config.getString("password");
+	}
 
 	public WeChat(String user, String pwd) {
 		this.loginUser = user;
@@ -148,7 +158,7 @@ public class WeChat {
 
 	/**
 	 * 发送登录信息,记录cookie，登录状态，token等信息
-	 *
+	 * 
 	 * @return
 	 */
 	@SuppressWarnings("deprecation")
@@ -258,7 +268,7 @@ public class WeChat {
 
 	/**
 	 * 从登录成功的信息中分离出token信息
-	 *
+	 * 
 	 * @param s
 	 * @return
 	 */
@@ -298,9 +308,9 @@ public class WeChat {
 
 	/**
 	 * 获取首页
-	 *
+	 * 
 	 * @throws org.apache.commons.httpclient.HttpException
-	 *
+	 * 
 	 * @throws java.io.IOException
 	 */
 	public void index() throws HttpException, IOException {
@@ -315,9 +325,9 @@ public class WeChat {
 
 	/**
 	 * 登出操作
-	 *
+	 * 
 	 * @throws org.apache.commons.httpclient.HttpException
-	 *
+	 * 
 	 * @throws java.io.IOException
 	 */
 	public void logout() throws HttpException, IOException {
@@ -332,9 +342,9 @@ public class WeChat {
 
 	/**
 	 * 获取验证码
-	 *
+	 * 
 	 * @throws org.apache.commons.httpclient.HttpException
-	 *
+	 * 
 	 * @throws java.io.IOException
 	 */
 	public InputStream code() throws HttpException, IOException {
@@ -354,7 +364,7 @@ public class WeChat {
 
 	/**
 	 * 页面跳转
-	 *
+	 * 
 	 * @param url
 	 */
 

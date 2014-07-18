@@ -13,6 +13,10 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.apache.commons.configuration.Configuration;
+import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.configuration.PropertiesConfiguration;
+
 /**
  * <strong>mysql数据库操作帮助类</strong>
  * <p>
@@ -23,12 +27,24 @@ import java.util.ArrayList;
  */
 public abstract class MySqlHelper {
 
-	private static final String url = "jdbc:mysql://192.168.15.108:3306/test1?useUnicode=true&characterEncoding=gbk";
-	private static final String driver = "com.mysql.jdbc.Driver";
-	private static final String name = "root";
-	private static final String pwd = "rk";
+	private static String driver = "com.mysql.jdbc.Driver";
+	private static String url;
+	private static String name;
+	private static String pwd;
 
 	public MySqlHelper() {
+	}
+
+	static {
+		try {
+			Configuration config = new PropertiesConfiguration(
+					"constants.properties");
+			url = config.getString("db");
+			name = config.getString("dbuser");
+			pwd = config.getString("dbpsw");
+		} catch (ConfigurationException e) {
+			e.printStackTrace();
+		}
 	}
 
 	// 获取连接connection
