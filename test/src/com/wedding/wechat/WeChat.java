@@ -21,6 +21,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.wedding.wechat.bean.BaseResponse;
 import com.wedding.wechat.bean.LoginJson;
 
@@ -387,23 +389,38 @@ public class WeChat {
 		}
 	}
 
-	public String getMessages() {
+	public JSONArray getMessages() {
 		String ret = "";
 		try {
-			if (this.isLogin) {
-				String url = GET_MESSAGE + "&token=" + this.token;
-				GetMethod get = new GetMethod(url);
-				get.setRequestHeader(USER_AGENT_H, USER_AGENT);
-				get.setRequestHeader(REFERER_H, INDEX_URL);
-				get.setRequestHeader("Cookie", this.cookiestr);
-				int status = client.executeMethod(get);
-				if (status == HttpStatus.SC_OK) {
-					ret = get.getResponseBodyAsString();
+			String url = GET_MESSAGE + "&token=" + this.token;
+			GetMethod get = new GetMethod(url);
+			get.setRequestHeader(USER_AGENT_H, USER_AGENT);
+			get.setRequestHeader(REFERER_H, INDEX_URL);
+			get.setRequestHeader("Cookie", this.cookiestr);
+			int status = client.executeMethod(get);
+			if (status == HttpStatus.SC_OK) {
+				ret = get.getResponseBodyAsString();
+			}
+			String json = ret.substring(ret.indexOf("list : (") + 8,
+					ret.indexOf(").msg_item,"));
+			JSONObject jo = JSONObject.parseObject(json);
+			JSONArray ja = jo.getJSONArray("msg_item");
+			for (Object o : ja) {
+				JSONObject msg = (JSONObject) o;
+				
+				// TODO 头像和图片可能请求有问题
+				msg.put("headimg", WeChat.VIEW_HEAD_IMG + "?token=" + token
+						+ "&fakeid=" + msg.getString("fakeid"));
+				if (msg.getIntValue("type") == 2) {
+					msg.put("content", WeChat.GET_IMG_DATA + "?token=" + token
+							+ "&msgid=" + msg.getString("id")
+							+ "&mode=large&source=&fileId=0&ow=");
 				}
 			}
+			return ja;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return ret;
+		return null;
 	}
 }

@@ -159,6 +159,7 @@ public abstract class MySqlHelper {
 			return al;
 
 		} catch (Exception ex) {
+			ex.printStackTrace();
 		} finally {
 			closeConnection(conn, pstmt, rs);
 		}
