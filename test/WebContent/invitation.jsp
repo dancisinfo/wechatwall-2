@@ -25,10 +25,20 @@
 	$(function() {
 		highdpi_init();
 
-		$('.ui-controlgroup-controls').css("margin", "5px 0");
 		$('.ui-radio label').css("text-align", "center").css("font-size",
 				"12px").width("50px");
 		$('label[for=radio-choice-1c]').width("74px");
+		$('.ui-btn').css("font-size", "12px");
+
+		$('#submitBtn').click(function() {
+			$.ajax({
+				url : '/invitationServlet.do',
+				type : 'post'
+			}).done(function(data) {
+				$('.baseinfo').html(JSON.stringify(data));
+			}).error(function() {
+			});
+		});
 	});
 	function highdpi_init() {
 		if ($('.replace-2x').css('font-size') == "1px") {
@@ -64,8 +74,10 @@
 					<label for="radio-choice-1c">人不到礼到</label>
 				</fieldset>
 				<textarea rows="2" name="remark" id="remark" class="remark"
-					style="resize: none; overflow-y: auto"
+					style="resize: none; overflow-y: auto; margin-bottom: 10px"
 					placeholder="还有啥想说的吗？比如:我要和单身姑娘们一桌，或者我要带不止一个家属。" data-theme="b"></textarea>
+				<input data-theme="b" value="确认回执" type="button" data-icon="check"
+					id="submitBtn">
 			</div>
 		</div>
 	</div>
