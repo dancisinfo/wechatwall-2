@@ -26,8 +26,8 @@
 		highdpi_init();
 
 		$('.ui-controlgroup-controls').css("margin", "5px 0");
-		$('.ui-radio label').css("text-align", "center");
-		$('#remark').height("67px");
+		$('.ui-radio label').css("text-align", "center").css("font-size",
+				"12px").width("58px");
 	});
 	function highdpi_init() {
 		if ($('.replace-2x').css('font-size') == "1px") {
@@ -62,8 +62,9 @@
 						type="radio" name="radio-choice-1" id="radio-choice-1c" value="0">
 					<label for="radio-choice-1c">来不了</label>
 				</fieldset>
-				<textarea rows="2" name="remark" id="remark"
-					placeholder="还有啥想说的吗？比如:我要和单身姑娘们一桌。" data-theme="b"></textarea>
+				<textarea rows="2" name="remark" id="remark" class="remark"
+					style="resize: none; overflow-y: auto"
+					placeholder="还有啥想说的吗？比如:我要和单身姑娘们一桌，或者我要带不止一个家属。" data-theme="b"></textarea>
 			</div>
 		</div>
 	</div>
