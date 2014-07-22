@@ -10,8 +10,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta http-equiv="content-type" content="text/html; charset=gb2312">
-<meta name="HandheldFriendly" content="True">
-<meta name="apple-touch-fullscreen" content="YES" />
+<meta name="HandheldFriendly" content="true">
+<meta name="apple-touch-fullscreen" content="yes" />
 <title>婚礼喜帖</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/jquery.mobile-1.4.3.min.css" rel="stylesheet"
@@ -27,7 +27,8 @@
 
 		$('.ui-controlgroup-controls').css("margin", "5px 0");
 		$('.ui-radio label').css("text-align", "center").css("font-size",
-				"12px").width("58px");
+				"12px").width("50px");
+		$('label[for=radio-choice-1c]').width("74px");
 	});
 	function highdpi_init() {
 		if ($('.replace-2x').css('font-size') == "1px") {
@@ -60,7 +61,7 @@
 					<input type="radio" name="radio-choice-1" id="radio-choice-1b"
 						value="2"> <label for="radio-choice-1b">带家属</label> <input
 						type="radio" name="radio-choice-1" id="radio-choice-1c" value="0">
-					<label for="radio-choice-1c">来不了</label>
+					<label for="radio-choice-1c">人不到礼到</label>
 				</fieldset>
 				<textarea rows="2" name="remark" id="remark" class="remark"
 					style="resize: none; overflow-y: auto"
