@@ -21,13 +21,24 @@ body {
 
 .signInContainer {
 	width: 250px;
-	height: 300px;
+	height: 200px;
 	margin: 0 auto;
-	padding-top: 110px;
+	padding-top: 95px;
 	font-size: 12px;
+}
+
+.slidercontainer {
+	width: 288px;
+	height: 200px;
+	margin: 0 auto;
+	padding-top: 95px;
 }
 
 .remark {
 	max-height: 67px;
 	min-height: 67px;
+}
+
+.player {
+	display: none;
 }

@@ -16,11 +16,13 @@
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/jquery.mobile-1.4.3.min.css" rel="stylesheet"
 	type="text/css" />
+<link rel="stylesheet" href="css/flexslider.css" type="text/css">
 <link rel="stylesheet"
 	media="only screen and (-webkit-min-device-pixel-ratio: 2)"
 	type="text/css" href="css/highdpi.css" />
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.mobile-1.4.3.min.js"></script>
+<script src="js/jquery.flexslider-min.js"></script>
 <script type="text/javascript">
 	$(function() {
 		highdpi_init();
@@ -28,16 +30,18 @@
 		$('.ui-radio label').css("text-align", "center").css("font-size",
 				"12px").width("58px");
 		$('.ui-btn').css("font-size", "12px");
+		$('.flexslider').flexslider();
 
 		$('#submitBtn').click(function() {
 			$.ajax({
 				url : '/invitationServlet.do',
 				type : 'post'
 			}).done(function(data) {
-				$('.baseinfo').html(JSON.stringify(data));
 			}).error(function() {
 			});
 		});
+
+		$('#musicBox').trigger('play');
 	});
 	function highdpi_init() {
 		if ($('.replace-2x').css('font-size') == "1px") {
@@ -60,6 +64,20 @@
 			<img alt="" src="images/page2.jpg" class="replace-2x container" />
 		</div>
 		<div class="container page3">
+			<div class="slidercontainer">
+				<div class="flexslider">
+					<ul class="slides">
+						<li><img src="images/2007.jpg" /></li>
+						<li><img src="images/2008.jpg" /></li>
+						<li><img src="images/2009.jpg" /></li>
+						<li><img src="images/2010.jpg" /></li>
+						<li><img src="images/2011.jpg" /></li>
+						<li><img src="images/2012.jpg" /></li>
+						<li><img src="images/2013.jpg" /></li>
+						<li><img src="images/2014.jpg" /></li>
+					</ul>
+				</div>
+			</div>
 			<div class="signInContainer">
 				<input type="text" name="guestName" id="guestName"
 					data-clear-btn="true" placeholder="×ðÐÕ´óÃû" data-theme="b" />
@@ -80,6 +98,10 @@
 					id="submitBtn">
 			</div>
 		</div>
+	</div>
+	<div class="player">
+		<audio tabindex="0" id="musicBox" autoplay="autoplay" loop="loop"
+			controls="controls" src="music/weddingmarch.mp3"></audio>
 	</div>
 </body>
 </html>
