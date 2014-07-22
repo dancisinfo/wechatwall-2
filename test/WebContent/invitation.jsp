@@ -26,8 +26,7 @@
 		highdpi_init();
 
 		$('.ui-radio label').css("text-align", "center").css("font-size",
-				"12px").width("50px");
-		$('label[for=radio-choice-1c]').width("74px");
+				"12px").width("58px");
 		$('.ui-btn').css("font-size", "12px");
 
 		$('#submitBtn').click(function() {
@@ -67,15 +66,16 @@
 				<fieldset data-role="controlgroup" data-theme="b"
 					data-type="horizontal">
 					<input type="radio" name="radio-choice-1" id="radio-choice-1a"
-						value="1" checked="checked"> <label for="radio-choice-1a">自己来</label>
-					<input type="radio" name="radio-choice-1" id="radio-choice-1b"
-						value="2"> <label for="radio-choice-1b">带家属</label> <input
-						type="radio" name="radio-choice-1" id="radio-choice-1c" value="0">
-					<label for="radio-choice-1c">人不到礼到</label>
+						value="0"> <label for="radio-choice-1a">钱到</label> <input
+						type="radio" name="radio-choice-1" id="radio-choice-1b" value="1"
+						checked="checked"> <label for="radio-choice-1b">人到</label>
+					<input type="radio" name="radio-choice-1" id="radio-choice-1c"
+						value="2"> <label for="radio-choice-1c">带家属到</label>
 				</fieldset>
 				<textarea rows="2" name="remark" id="remark" class="remark"
 					style="resize: none; overflow-y: auto; margin-bottom: 10px"
-					placeholder="还有啥想说的吗？比如:我要和单身姑娘们一桌，或者我要带不止一个家属。" data-theme="b"></textarea>
+					placeholder="还有啥想说的吗？比如:我要和单身姑娘们一桌，或者:我要带不止一个家属，亦或:给我准备一个大号的红包，小的不够装。"
+					data-theme="b"></textarea>
 				<input data-theme="b" value="确认回执" type="button" data-icon="check"
 					id="submitBtn">
 			</div>
