@@ -42,3 +42,12 @@ body {
 .player {
 	display: none;
 }
+
+.replace-2x {
+	font-size: 1px;
+}
+
+.flexslider {
+	width: 284px;
+	height: 189px;
+}
