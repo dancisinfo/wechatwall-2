@@ -34,7 +34,7 @@
 
 		$('#form1').submit(function(event) {
 			event.preventDefault();
-			if ($.trim($('#gusetName').text()).length == 0) {
+			if ($.trim($('#guestName').val()).length == 0) {
 				var d = dialog({
 					content : '签个名呗',
 					quickClose : true
@@ -52,7 +52,7 @@
 				data : $(this).serialize()
 			}).done(function(data) {
 				if (data) {
-
+					$('.signInContainer').html("<div class='thanks'>多谢合作！</div>");
 				} else {
 
 				}
