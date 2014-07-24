@@ -32,33 +32,36 @@
 				"12px").width("58px");
 		$('.ui-btn').css("font-size", "12px");
 
-		$('#form1').submit(function(event) {
-			event.preventDefault();
-			if ($.trim($('#guestName').val()).length == 0) {
-				var d = dialog({
-					content : '签个名呗',
-					quickClose : true
+		$('#form1').submit(
+				function(event) {
+					event.preventDefault();
+					if ($.trim($('#guestName').val()).length == 0) {
+						var d = dialog({
+							content : '签个名呗',
+							quickClose : true
+						});
+						d.show(document.getElementById('guestName'));
+						setTimeout(function() {
+							d.close().remove();
+						}, 2500);
+						return;
+					}
+
+					$.ajax({
+						url : 'invitationServlet.do',
+						type : 'post',
+						data : $(this).serialize()
+					}).done(
+							function(data) {
+								if (data) {
+									$('.signInContainer').html(
+											"<div class='thanks'>多谢合作！</div>");
+								} else {
+
+								}
+							}).error(function() {
+					});
 				});
-				d.show(document.getElementById('guestName'));
-				setTimeout(function() {
-					d.close().remove();
-				}, 2500);
-				return;
-			}
-
-			$.ajax({
-				url : 'invitationServlet.do',
-				type : 'post',
-				data : $(this).serialize()
-			}).done(function(data) {
-				if (data) {
-					$('.signInContainer').html("<div class='thanks'>多谢合作！</div>");
-				} else {
-
-				}
-			}).error(function() {
-			});
-		});
 
 		$('#musicBox').trigger('play');
 
@@ -80,6 +83,64 @@
 			}
 		}
 	}
+</script>
+<script>
+	var imgUrl = "http://59.46.100.104:8090/test/images/shareimg.jpg";
+	var lineLink = "http://59.46.100.104:8090/test/invitation.jsp";
+	var descContent = '测试内容，谁谁谁1018要结婚啦，邀请您来参加我们的婚礼。';
+	var shareTitle = '婚礼喜帖';
+	var appid = '';
+
+	function shareFriend() {
+		WeixinJSBridge.invoke('sendAppMessage', {
+			"appid" : appid,
+			"img_url" : imgUrl,
+			"img_width" : "200",
+			"img_height" : "200",
+			"link" : lineLink,
+			"desc" : descContent,
+			"title" : shareTitle
+		}, function(res) {
+		})
+	}
+
+	function shareTimeline() {
+		WeixinJSBridge.invoke('shareTimeline', {
+			"img_url" : imgUrl,
+			"img_width" : "200",
+			"img_height" : "200",
+			"link" : lineLink,
+			"desc" : descContent,
+			"title" : shareTitle
+		}, function(res) {
+		});
+	}
+
+	function shareWeibo() {
+		WeixinJSBridge.invoke('shareWeibo', {
+			"content" : descContent,
+			"url" : lineLink,
+		}, function(res) {
+		});
+	}
+
+	// 当微信内置浏览器完成内部初始化后会触发WeixinJSBridgeReady事件。
+	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+		// 发送给好友
+		WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+			shareFriend();
+		});
+
+		// 分享到朋友圈
+		WeixinJSBridge.on('menu:share:timeline', function(argv) {
+			shareTimeline();
+		});
+
+		// 分享到微博
+		WeixinJSBridge.on('menu:share:weibo', function(argv) {
+			shareWeibo();
+		});
+	}, false);
 </script>
 </head>
 <body>
@@ -120,8 +181,7 @@
 					</fieldset>
 					<textarea rows="2" name="remark" id="remark" class="remark"
 						style="resize: none; overflow-y: auto; margin-bottom: 10px"
-						placeholder="还有啥想说的吗？比如:我要和单身姑娘们一桌，或者:我要带不止一个家属，亦或:给我准备一个大号的红包，小的不够装。"
-						data-theme="b"></textarea>
+						placeholder="还有啥想说的吗？比如:我要和单身姑娘们一桌，或者:我是单身姑娘。" data-theme="b"></textarea>
 					<input data-theme="b" value="确认回执" type="submit" data-icon="check"
 						id="submitBtn">
 				</form>
