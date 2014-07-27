@@ -39,7 +39,7 @@ public class WeChat {
 	public final static String VIEW_HEAD_IMG = "http://mp.weixin.qq.com/misc/getheadimg";
 	public final static String GET_IMG_DATA = "http://mp.weixin.qq.com/cgi-bin/getimgdata";
 	public final static String GET_REGIONS = "http://mp.weixin.qq.com/cgi-bin/getregions";
-	public final static String GET_MESSAGE = "https://mp.weixin.qq.com/cgi-bin/message?t=message/list&count=20&day=7&lang=zh_CN";
+	public final static String GET_MESSAGE = "https://mp.weixin.qq.com/cgi-bin/message?t=message/list&count=50&day=7&lang=zh_CN";
 	public final static String OPER_ADVANCED_FUNC = "http://mp.weixin.qq.com/cgi-bin/operadvancedfunc";
 	public final static String MASSSEND_PAGE = "http://mp.weixin.qq.com/cgi-bin/masssendpage";
 	public final static String FILE_MANAGE_PAGE = "http://mp.weixin.qq.com/cgi-bin/filemanagepage";

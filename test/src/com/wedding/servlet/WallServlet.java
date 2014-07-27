@@ -5,6 +5,7 @@ package com.wedding.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,9 +19,9 @@ import com.wedding.wechat.util.MySqlHelper;
 
 /**
  * 
- *
+ * 
  * @author xuhan
- *
+ * 
  * @since 2014年7月21日 下午1:09:26
  */
 public class WallServlet extends HttpServlet {
@@ -38,38 +39,56 @@ public class WallServlet extends HttpServlet {
 			throws ServletException, IOException {
 		try {
 			String sql;
-			WeChat wc = new WeChat();
-
-			// 登录
-			wc.login();
-
-			// 收取消息
-			JSONArray ja = wc.getMessages();
-
-			// 取当前数据库中的最新消息的时间做比照，大于他的部分写入数据库，并返回给前台
-			sql = "select max(msg_time) from message_board";
-			int latestMessage = (int) MySqlHelper.ExecuteScalar(sql, null);
-
-			sql = "insert into message_board values (?,?,?,?,?,?,?)";
 			JSONArray returnJa = new JSONArray();
-			for (Object o : ja) {
-				JSONObject msg = (JSONObject) o;
-				if (Integer.valueOf(msg.getString("date_time")) > latestMessage) {
-					Object[] params = new Object[7];
-					params[0] = msg.getString("id");
-					params[1] = msg.getString("fakeid");
-					params[2] = msg.getString("type");
-					params[3] = msg.getString("headimg");
-					params[4] = msg.getString("nick_name");
-					params[5] = msg.getString("content");
-					params[6] = msg.getString("date_time");
-					MySqlHelper.ExecuteNoneQuery(sql, params);
-					returnJa.add(msg);
-				} else {
-					continue;
+			if ("all".equals(req.getParameter("get"))) {
+				sql = "select * from message_board order by msg_time desc limit 0,20";
+				List<Object[]> l = MySqlHelper.ExecuteReader(sql, null);
+				for (int i = 0; i < l.size(); i++) {
+					Object[] obs = l.get(i);
+					JSONObject jo = new JSONObject();
+					jo.put("id", obs[0].toString());
+					jo.put("fakeid", obs[1].toString());
+					jo.put("type", obs[2].toString());
+					jo.put("headimg", obs[3].toString());
+					jo.put("nick_name", obs[4].toString());
+					jo.put("content", obs[5].toString());
+					jo.put("date_time", obs[6].toString());
+					returnJa.add(jo);
+				}
+			} else {
+				WeChat wc = new WeChat();
+
+				// 登录
+				wc.login();
+
+				// 收取消息
+				JSONArray ja = wc.getMessages();
+
+				// 取当前数据库中的最新消息的时间做比照，大于他的部分写入数据库，并返回给前台
+				sql = "select IFNULL(max(msg_time),0) from message_board";
+				int latestMessage = Integer.valueOf(MySqlHelper.ExecuteScalar(
+						sql, null).toString());
+
+				sql = "insert into message_board values (?,?,?,?,?,?,?)";
+
+				for (Object o : ja) {
+					JSONObject msg = (JSONObject) o;
+					if (Integer.valueOf(msg.getString("date_time")) > latestMessage) {
+						Object[] params = new Object[7];
+						params[0] = msg.getString("id");
+						params[1] = msg.getString("fakeid");
+						params[2] = msg.getString("type");
+						params[3] = msg.getString("headimg");
+						params[4] = msg.getString("nick_name");
+						params[5] = msg.getString("content");
+						params[6] = msg.getString("date_time");
+						MySqlHelper.ExecuteNoneQuery(sql, params);
+						returnJa.add(msg);
+					} else {
+						continue;
+					}
 				}
 			}
-
 			resp.setContentType("text/html;charset=utf-8");
 			PrintWriter pw = resp.getWriter();
 			pw.print(returnJa.toJSONString());

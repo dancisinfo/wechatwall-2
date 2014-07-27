@@ -9,42 +9,61 @@
 <script src="js/jquery.min.js"></script>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
-	var items = [];
 	$(function() {
+		$.ajax({
+			url : 'wallServlet.do?get=all',
+			type : 'post',
+			async : false
+		}).done(function(data) {
+			var msgs = analyzeData(data);
+			$(msgs).prependTo(".messagelist");
+		});
+
 		function getNewMessages() {
-			$
-					.ajax({
-						url : 'wallServlet.do?get=new',
-						type : 'post'
-					})
-					.done(
-							function(data) {
-								data = JSON.parse(data);
-								for (var i = 0; i < data.length; i++) {
-									msg = data[i];
-									if (msg.type == 1) {
-										items
-												.push("<li class='messageitem'><img src='"+msg.headimg+"'/>"
-														+ msg.nick_name
-														+ "说:"
-														+ msg.content + "</li>");
-									}
-								}
-								$('.messagelist').html(items.join(""));
-								setTimeout(getNewMessages, 5000);
-							}).error(function() {
-					});
+			$.ajax({
+				url : 'wallServlet.do?get=new',
+				type : 'post'
+			}).done(function(data) {
+				var msgs = analyzeData(data);
+				$(msgs).prependTo(".messagelist");
+				setTimeout(getNewMessages, 5000);
+			});
+		}
+
+		function analyzeData(data) {
+			var items = [];
+			data = JSON.parse(data);
+			for (var i = 0; i < data.length; i++) {
+				var msg = data[i];
+				var sb = "<li class='messageitem'>";
+				sb += "<div class='who'>";
+				sb += "<img class='avatar' src='" + msg.headimg + "'/>";
+				sb += "</div><div class='what'>";
+				sb += "<span class='name'>" + msg.nick_name + ":</span>";
+				if (msg.type == 1) {
+					sb += "<span class='text'>" + msg.content + "</span>";
+				} else {
+					sb += "<img class='photo' src='" + msg.content + "'/>";
+				}
+				sb += "</div></li>";
+				items.push(sb);
+			}
+			return items.join("");
 		}
 
 		getNewMessages();
 	});
 </script>
 </head>
-<body>
-	<div class="container">
-		<div class="left"></div>
+<body class="wallbody">
+	<div class="wallcontainer">
+		<div class="left">
+			<img class="qrcode" src="images/qrcode.jpg" /> <span class="qrtip"><br />微信扫二维码<br />或公众号搜索<span
+				class="account">xhjm1018</span><br />关注并发送消息上墙 </span>
+		</div>
 		<div class="main">
 			<ul class="messagelist">
+				<li class="messageitem">欢迎骚扰</li>
 			</ul>
 		</div>
 	</div>
