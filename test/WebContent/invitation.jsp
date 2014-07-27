@@ -144,7 +144,7 @@
 </script>
 </head>
 <body>
-	<div class="main">
+	<div class="invitationmain">
 		<div class="container">
 			<img alt="" src="images/page1.jpg" class="replace-2x container" />
 		</div>
