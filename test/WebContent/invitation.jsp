@@ -27,6 +27,7 @@
 <script src="js/imagesloaded.pkgd.min.js"></script>
 <script src="js/dialog-min.js"></script>
 <script type="text/javascript">
+	var submiting = false;
 	$(function() {
 		$('.ui-radio label').css("text-align", "center").css("font-size",
 				"12px").width("58px");
@@ -34,6 +35,8 @@
 
 		$('#form1').submit(
 				function(event) {
+					submiting = true;
+					$('#submitBtn').attr("disabled", "true");
 					event.preventDefault();
 					if ($.trim($('#guestName').val()).length == 0) {
 						var d = dialog({
@@ -53,6 +56,8 @@
 						data : $(this).serialize()
 					}).done(
 							function(data) {
+								submiting = false;
+								$('#submitBtn').attr("disabled", "false");
 								if (data) {
 									$('.signInContainer').html(
 											"<div class='thanks'>¶àÐ»ºÏ×÷£¡</div>");
@@ -60,6 +65,8 @@
 
 								}
 							}).error(function() {
+						submiting = false;
+						$('#submitBtn').attr("disabled", "false");
 					});
 				});
 
