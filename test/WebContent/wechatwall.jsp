@@ -33,17 +33,20 @@
 		function analyzeData(data) {
 			var items = [];
 			data = JSON.parse(data);
-			for (var i = 0; i < data.length; i++) {
-				var msg = data[i];
+			var messages = data.messages;
+			var token = data.token;
+			for (var i = 0; i < messages.length; i++) {
+				var msg = messages[i];
 				var sb = "<li class='messageitem'>";
 				sb += "<div class='who'>";
-				sb += "<img class='avatar' src='" + msg.headimg + "'/>";
+				sb += "<img class='avatar' src='" + msg.headimg + "&token=" + token + "'/>";
 				sb += "</div><div class='what'>";
 				sb += "<span class='name'>" + msg.nick_name + ":</span>";
 				if (msg.type == 1) {
 					sb += "<span class='text'>" + msg.content + "</span>";
 				} else {
-					sb += "<img class='photo' src='" + msg.content + "'/>";
+					// TODO 如果是图片，给按比例弄到适当大小
+					sb += "<img class='photo' src='" + msg.content + "&token=" + token + "'/>";
 				}
 				sb += "</div></li>";
 				items.push(sb);

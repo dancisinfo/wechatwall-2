@@ -407,14 +407,16 @@ public class WeChat {
 			JSONArray ja = jo.getJSONArray("msg_item");
 			for (Object o : ja) {
 				JSONObject msg = (JSONObject) o;
-				
+
 				// TODO 头像和图片可能请求有问题
-				msg.put("headimg", WeChat.VIEW_HEAD_IMG + "?token=" + token
-						+ "&fakeid=" + msg.getString("fakeid"));
+				msg.put("headimg",
+						WeChat.VIEW_HEAD_IMG + "?fakeid="
+								+ msg.getString("fakeid"));
 				if (msg.getIntValue("type") == 2) {
-					msg.put("content", WeChat.GET_IMG_DATA + "?token=" + token
-							+ "&msgid=" + msg.getString("id")
-							+ "&mode=large&source=&fileId=0&ow=");
+					msg.put("content",
+							WeChat.GET_IMG_DATA + "?msgid="
+									+ msg.getString("id")
+									+ "&mode=large&source=&fileId=0&ow=");
 				}
 			}
 			return ja;

@@ -1,6 +1,6 @@
+<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=gbk"
 	pageEncoding="gbk"%>
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -29,46 +29,42 @@
 <script type="text/javascript">
 	var submiting = false;
 	$(function() {
-		$('.ui-radio label').css("text-align", "center").css("font-size",
-				"12px").width("58px");
+		$('.ui-radio label').css("text-align", "center").css("font-size", "12px").width("58px");
 		$('.ui-btn').css("font-size", "12px");
 
-		$('#form1').submit(
-				function(event) {
-					submiting = true;
-					$('#submitBtn').attr("disabled", "true");
-					event.preventDefault();
-					if ($.trim($('#guestName').val()).length == 0) {
-						var d = dialog({
-							content : '签个名呗',
-							quickClose : true
-						});
-						d.show(document.getElementById('guestName'));
-						setTimeout(function() {
-							d.close().remove();
-						}, 2500);
-						return;
-					}
-
-					$.ajax({
-						url : 'invitationServlet.do',
-						type : 'post',
-						data : $(this).serialize()
-					}).done(
-							function(data) {
-								submiting = false;
-								$('#submitBtn').attr("disabled", "false");
-								if (data) {
-									$('.signInContainer').html(
-											"<div class='thanks'>多谢合作！</div>");
-								} else {
-
-								}
-							}).error(function() {
-						submiting = false;
-						$('#submitBtn').attr("disabled", "false");
-					});
+		$('#form1').submit(function(event) {
+			submiting = true;
+			$('#submitBtn').attr("disabled", "true");
+			event.preventDefault();
+			if ($.trim($('#guestName').val()).length == 0) {
+				var d = dialog({
+					content : '签个名呗',
+					quickClose : true
 				});
+				d.show(document.getElementById('guestName'));
+				setTimeout(function() {
+					d.close().remove();
+				}, 2500);
+				return;
+			}
+
+			$.ajax({
+				url : 'invitationServlet.do',
+				type : 'post',
+				data : $(this).serialize()
+			}).done(function(data) {
+				submiting = false;
+				$('#submitBtn').attr("disabled", "false");
+				if (data) {
+					$('.signInContainer').html("<div class='thanks'>多谢合作！</div>");
+				} else {
+
+				}
+			}).error(function() {
+				submiting = false;
+				$('#submitBtn').attr("disabled", "false");
+			});
+		});
 
 		$('#musicBox').trigger('play');
 

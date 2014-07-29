@@ -39,7 +39,12 @@ public class WallServlet extends HttpServlet {
 			throws ServletException, IOException {
 		try {
 			String sql;
-			JSONArray returnJa = new JSONArray();
+			JSONObject result = new JSONObject();
+			JSONArray resultJa = new JSONArray();
+			WeChat wc = new WeChat();
+			// 登录
+			wc.login();
+
 			if ("all".equals(req.getParameter("get"))) {
 				sql = "select * from message_board order by msg_time desc limit 0,20";
 				List<Object[]> l = MySqlHelper.ExecuteReader(sql, null);
@@ -53,14 +58,9 @@ public class WallServlet extends HttpServlet {
 					jo.put("nick_name", obs[4].toString());
 					jo.put("content", obs[5].toString());
 					jo.put("date_time", obs[6].toString());
-					returnJa.add(jo);
+					resultJa.add(jo);
 				}
 			} else {
-				WeChat wc = new WeChat();
-
-				// 登录
-				wc.login();
-
 				// 收取消息
 				JSONArray ja = wc.getMessages();
 
@@ -83,15 +83,17 @@ public class WallServlet extends HttpServlet {
 						params[5] = msg.getString("content");
 						params[6] = msg.getString("date_time");
 						MySqlHelper.ExecuteNoneQuery(sql, params);
-						returnJa.add(msg);
+						resultJa.add(msg);
 					} else {
 						continue;
 					}
 				}
 			}
+			result.put("token", wc.getToken());
+			result.put("messages", resultJa);
 			resp.setContentType("text/html;charset=utf-8");
 			PrintWriter pw = resp.getWriter();
-			pw.print(returnJa.toJSONString());
+			pw.print(result.toJSONString());
 			pw.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();

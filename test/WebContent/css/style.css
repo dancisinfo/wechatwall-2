@@ -145,19 +145,24 @@ body {
 }
 
 .what {
-	width: 521px;
+	width: 519px;
 	height: 100%;
 	float: left;
 	border-radius: 10px;
 	color: #000;
+	text-align: left;
 }
 
 .text {
-	width: 521px;
-	text-align: left;
+	width: 519px;
 	float: left;
 	font-size: 32px;
 	display: block;
 	height: 110px;
 	text-overflow: ellipsis;
+}
+
+.photo {
+	height: 110px;
+	width: 110px;
 }
