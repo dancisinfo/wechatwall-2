@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="gbk" ?>
-<%@ page language="java" contentType="text/html; charset=gbk"
-	pageEncoding="gbk"%>
+<%@ page language="java" contentType="text/html; charset=gbk" pageEncoding="gbk"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -34,19 +33,18 @@
 			var items = [];
 			data = JSON.parse(data);
 			var messages = data.messages;
-			var token = data.token;
 			for (var i = 0; i < messages.length; i++) {
 				var msg = messages[i];
 				var sb = "<li class='messageitem'>";
 				sb += "<div class='who'>";
-				sb += "<img class='avatar' src='" + msg.headimg + "&token=" + token + "'/>";
+				sb += "<img class='avatar' src='" + msg.headimg + "&token=" + data.token + "'/>";
 				sb += "</div><div class='what'>";
 				sb += "<span class='name'>" + msg.nick_name + ":</span>";
 				if (msg.type == 1) {
 					sb += "<span class='text'>" + msg.content + "</span>";
 				} else {
 					// TODO 如果是图片，给按比例弄到适当大小
-					sb += "<img class='photo' src='" + msg.content + "&token=" + token + "'/>";
+					sb += "<img class='photo' src='" + msg.content + "&token=" + data.token + "'/>";
 				}
 				sb += "</div></li>";
 				items.push(sb);
