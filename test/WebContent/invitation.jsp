@@ -15,8 +15,7 @@
 <link href="css/ui-dialog.css" rel="stylesheet" type="text/css" />
 <link href="css/jquery.mobile-1.4.3.min.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="css/flexslider.css" type="text/css">
-<link rel="stylesheet" media="only screen and (-webkit-min-device-pixel-ratio: 2)" type="text/css"
-	href="css/highdpi.css" />
+<link rel="stylesheet" media="only screen and (-webkit-min-device-pixel-ratio: 2)" type="text/css" href="css/highdpi.css" />
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.mobile-1.4.3.min.js"></script>
 <script src="js/jquery.flexslider-min.js"></script>
@@ -66,7 +65,9 @@
 
 		imagesLoaded('img', function(instance) {
 			$('.flexslider').flexslider({
-				slideshowSpeed : 2000
+				slideshowSpeed : 2000,
+				pauseOnAction : false,
+				pausePlay : true
 			});
 			highdpi_init();
 		});
@@ -169,14 +170,12 @@
 				<form action="" id="form1" name="form1" method="post">
 					<input type="text" name="guestName" id="guestName" data-clear-btn="true" placeholder="尊姓大名" data-theme="b" />
 					<fieldset data-role="controlgroup" data-theme="b" data-type="horizontal">
-						<input type="radio" name="radio-choice-1" id="radio-choice-1a" value="0"> <label for="radio-choice-1a">钱到</label>
-						<input type="radio" name="radio-choice-1" id="radio-choice-1b" value="1" checked="checked"> <label
-							for="radio-choice-1b">人到</label> <input type="radio" name="radio-choice-1" id="radio-choice-1c" value="2">
-						<label for="radio-choice-1c">带家属到</label>
+						<input type="radio" name="radio-choice-1" id="radio-choice-1a" value="0"> <label for="radio-choice-1a">钱到</label> <input type="radio"
+							name="radio-choice-1" id="radio-choice-1b" value="1" checked="checked"> <label for="radio-choice-1b">人到</label> <input type="radio"
+							name="radio-choice-1" id="radio-choice-1c" value="2"> <label for="radio-choice-1c">带家属到</label>
 					</fieldset>
-					<textarea rows="2" name="remark" id="remark" class="remark"
-						style="resize: none; overflow-y: auto; margin-bottom: 10px" placeholder="还有啥想说的吗？比如:我要和单身姑娘们一桌，或者:我是单身姑娘。"
-						data-theme="b"></textarea>
+					<textarea rows="2" name="remark" id="remark" class="remark" style="resize: none; overflow-y: auto; margin-bottom: 10px"
+						placeholder="还有啥想说的吗？比如:我要和单身姑娘们一桌，或者:我是单身姑娘。" data-theme="b"></textarea>
 					<input data-theme="b" value="确认回执" type="submit" data-icon="check" id="submitBtn">
 				</form>
 			</div>
