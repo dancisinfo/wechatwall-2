@@ -18,6 +18,7 @@
 <link rel="stylesheet" media="only screen and (-webkit-min-device-pixel-ratio: 2)" type="text/css" href="css/highdpi.css" />
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.mobile-1.4.3.min.js"></script>
+<script src="js/jquery.lazyload.min.js"></script>
 <script src="js/jquery.flexslider-min.js"></script>
 <script src="js/imagesloaded.pkgd.min.js"></script>
 <script src="js/dialog-min.js"></script>
@@ -61,8 +62,6 @@
 			});
 		});
 
-		// $('#musicBox').trigger('play');
-
 		imagesLoaded('img', function(instance) {
 			$('.flexslider').flexslider({
 				slideshowSpeed : 2000,
@@ -71,6 +70,8 @@
 			});
 			highdpi_init();
 		});
+		
+		$("img.lazy").lazyload();
 	});
 
 	function highdpi_init() {
@@ -155,14 +156,14 @@
 			<div class="slidercontainer">
 				<div class="flexslider">
 					<ul class="slides">
-						<li><img src="images/2007.jpg" class="replace-2x" /></li>
-						<li><img src="images/2008.jpg" class="replace-2x" /></li>
-						<li><img src="images/2009.jpg" class="replace-2x" /></li>
-						<li><img src="images/2010.jpg" class="replace-2x" /></li>
-						<li><img src="images/2011.jpg" class="replace-2x" /></li>
-						<li><img src="images/2012.jpg" class="replace-2x" /></li>
-						<li><img src="images/2013.jpg" class="replace-2x" /></li>
-						<li><img src="images/2014.jpg" class="replace-2x" /></li>
+						<li><img data-original="images/2007.jpg" class="replace-2x lazy" /></li>
+						<li><img data-original="images/2008.jpg" class="replace-2x lazy" /></li>
+						<li><img data-original="images/2009.jpg" class="replace-2x lazy" /></li>
+						<li><img data-original="images/2010.jpg" class="replace-2x lazy" /></li>
+						<li><img data-original="images/2011.jpg" class="replace-2x lazy" /></li>
+						<li><img data-original="images/2012.jpg" class="replace-2x lazy" /></li>
+						<li><img data-original="images/2013.jpg" class="replace-2x lazy" /></li>
+						<li><img data-original="images/2014.jpg" class="replace-2x lazy" /></li>
 					</ul>
 				</div>
 			</div>
