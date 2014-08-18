@@ -15,7 +15,7 @@
 <link rel="stylesheet" media="only screen and (-webkit-min-device-pixel-ratio: 2)" type="text/css" href="css/highdpi.css" />
 <script>
 	var imgUrl = "http://59.46.100.104:8090/test/images/shareimg.jpg";
-	var lineLink = "http://59.46.100.104:8090/test/wi.jsp";
+	var lineLink = "http://59.46.100.104:8090/test/invitation.jsp";
 	var descContent = '徐寒李娇媚要结婚啦，特邀请您来参加我们的婚礼。为安排桌位请在喜帖最下面留下回执。';
 	var shareTitle = '婚礼喜帖';
 	var appid = '';
