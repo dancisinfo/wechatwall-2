@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<%@ page language="java" contentType="text/html; charset=gbk" pageEncoding="gbk"%>
+<%@ page language="java" contentType="text/html; charset=gbk" pageEncoding="utf8"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -7,10 +7,10 @@
 <meta name="format-detection" content="telephone=no" />
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<meta http-equiv="content-type" content="text/html; charset=utf8">
 <meta name="HandheldFriendly" content="true">
 <meta name="apple-touch-fullscreen" content="yes" />
-<title>»éÀñÏ²Ìû</title>
+<title>å©šç¤¼å–œå¸–</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/ui-dialog.css" rel="stylesheet" type="text/css" />
 <link href="css/jquery.mobile-1.4.3.min.css" rel="stylesheet" type="text/css" />
@@ -34,7 +34,7 @@
 			event.preventDefault();
 			if ($.trim($('#guestName').val()).length == 0) {
 				var d = dialog({
-					content : 'Ç©¸öÃûßÂ',
+					content : 'ç­¾ä¸ªåå‘—',
 					quickClose : true
 				});
 				d.show(document.getElementById('guestName'));
@@ -52,7 +52,7 @@
 				submiting = false;
 				$('#submitBtn').attr("disabled", "false");
 				if (data) {
-					$('.signInContainer').html("<div class='thanks'>¶àĞ»ºÏ×÷£¡</div>");
+					$('.signInContainer').html("<div class='thanks'>å¤šè°¢åˆä½œï¼</div>");
 				} else {
 
 				}
@@ -70,7 +70,7 @@
 			});
 			highdpi_init();
 		});
-		
+
 		$("img.lazy").lazyload();
 	});
 
@@ -88,8 +88,8 @@
 <script>
 	var imgUrl = "http://59.46.100.104:8090/test/images/shareimg.jpg";
 	var lineLink = "http://59.46.100.104:8090/test/invitation.jsp";
-	var descContent = 'Ğìº®Àî½¿ÃÄÒª½á»éÀ²£¬ÌØÑûÇëÄúÀ´²Î¼ÓÎÒÃÇµÄ»éÀñ¡£Îª°²ÅÅ×ÀÎ»ÇëÔÚÏ²Ìû×îÏÂÃæÁôÏÂ»ØÖ´¡£';
-	var shareTitle = '»éÀñÏ²Ìû';
+	var descContent = 'å¾å¯’æå¨‡åªšè¦ç»“å©šå•¦ï¼Œç‰¹é‚€è¯·æ‚¨æ¥å‚åŠ æˆ‘ä»¬çš„å©šç¤¼ã€‚ä¸ºå®‰æ’æ¡Œä½è¯·åœ¨å–œå¸–æœ€ä¸‹é¢ç•™ä¸‹å›æ‰§ã€‚';
+	var shareTitle = 'å©šç¤¼å–œå¸–';
 	var appid = '';
 
 	function shareFriend() {
@@ -125,19 +125,19 @@
 		});
 	}
 
-	// µ±Î¢ĞÅÄÚÖÃä¯ÀÀÆ÷Íê³ÉÄÚ²¿³õÊ¼»¯ºó»á´¥·¢WeixinJSBridgeReadyÊÂ¼ş¡£
+	// å½“å¾®ä¿¡å†…ç½®æµè§ˆå™¨å®Œæˆå†…éƒ¨åˆå§‹åŒ–åä¼šè§¦å‘WeixinJSBridgeReadyäº‹ä»¶ã€‚
 	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-		// ·¢ËÍ¸øºÃÓÑ
+		// å‘é€ç»™å¥½å‹
 		WeixinJSBridge.on('menu:share:appmessage', function(argv) {
 			shareFriend();
 		});
 
-		// ·ÖÏíµ½ÅóÓÑÈ¦
+		// åˆ†äº«åˆ°æœ‹å‹åœˆ
 		WeixinJSBridge.on('menu:share:timeline', function(argv) {
 			shareTimeline();
 		});
 
-		// ·ÖÏíµ½Î¢²©
+		// åˆ†äº«åˆ°å¾®åš
 		WeixinJSBridge.on('menu:share:weibo', function(argv) {
 			shareWeibo();
 		});
@@ -169,15 +169,15 @@
 			</div>
 			<div class="signInContainer">
 				<form action="" id="form1" name="form1" method="post">
-					<input type="text" name="guestName" id="guestName" data-clear-btn="true" placeholder="×ğĞÕ´óÃû" data-theme="b" />
+					<input type="text" name="guestName" id="guestName" data-clear-btn="true" placeholder="å°Šå§“å¤§å" data-theme="b" />
 					<fieldset data-role="controlgroup" data-theme="b" data-type="horizontal">
-						<input type="radio" name="radio-choice-1" id="radio-choice-1a" value="0"> <label for="radio-choice-1a">Ç®µ½</label> <input type="radio"
-							name="radio-choice-1" id="radio-choice-1b" value="1" checked="checked"> <label for="radio-choice-1b">ÈËµ½</label> <input type="radio"
-							name="radio-choice-1" id="radio-choice-1c" value="2"> <label for="radio-choice-1c">´ø¼ÒÊôµ½</label>
+						<input type="radio" name="radio-choice-1" id="radio-choice-1a" value="0"> <label for="radio-choice-1a">é’±åˆ°</label> <input type="radio"
+							name="radio-choice-1" id="radio-choice-1b" value="1" checked="checked"> <label for="radio-choice-1b">äººåˆ°</label> <input type="radio"
+							name="radio-choice-1" id="radio-choice-1c" value="2"> <label for="radio-choice-1c">å¸¦å®¶å±åˆ°</label>
 					</fieldset>
 					<textarea rows="2" name="remark" id="remark" class="remark" style="resize: none; overflow-y: auto; margin-bottom: 10px"
-						placeholder="»¹ÓĞÉ¶ÏëËµµÄÂğ£¿±ÈÈç:ÎÒÒªºÍµ¥Éí¹ÃÄïÃÇÒ»×À£¬»òÕß:ÎÒÊÇµ¥Éí¹ÃÄï¡£" data-theme="b"></textarea>
-					<input data-theme="b" value="È·ÈÏ»ØÖ´" type="submit" data-icon="check" id="submitBtn">
+						placeholder="è¿˜æœ‰å•¥æƒ³è¯´çš„å—ï¼Ÿæ¯”å¦‚:æˆ‘è¦å’Œå•èº«å§‘å¨˜ä»¬ä¸€æ¡Œï¼Œæˆ–è€…:æˆ‘æ˜¯å•èº«å§‘å¨˜ã€‚" data-theme="b"></textarea>
+					<input data-theme="b" value="ç¡®è®¤å›æ‰§" type="submit" data-icon="check" id="submitBtn">
 				</form>
 			</div>
 		</div>
