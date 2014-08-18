@@ -83,7 +83,7 @@
 		<div class="banner1">
 			<div class="title1">Come and Enjoy</div>
 			<div class="subtitle1">
-				XX和XX婚礼，敬备喜宴<br />2014.10.18
+				徐寒&李娇媚婚礼，敬备喜宴<br />2014.10.18
 			</div>
 		</div>
 	</div>
