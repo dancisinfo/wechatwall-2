@@ -1,15 +1,5 @@
 @CHARSET "UTF-8";
 
-body {
-	text-align: center;
-}
-
-.invitationmain {
-	width: 320px;
-	margin: 0 auto;
-}
-
-/* 墙样式开始 */
 .wallbody {
 	/* background-image: url("../images/32.jpg"); */
 	background-color: #60DFE5;
