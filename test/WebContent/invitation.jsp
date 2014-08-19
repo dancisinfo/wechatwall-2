@@ -82,6 +82,30 @@
 		}
 
 		// highdpi_init();
+
+		document.getElementById("submitBtn").onclick = function() {
+			if (submiting) {
+				return;
+			}
+			var ele = document.getElementById("guestName");
+			if (ele.value == "") {
+				ele.focus();
+				ele.style.border = "1px solid red";
+				return;
+			}
+			ele.style.border = "";
+			submiting = true;
+			document.getElementById("form1").submit();
+		};
+
+		document.getElementById("submitFrame").onload = function() {
+			var ele = document.getElementById("formcontainer");
+			if (this.contentDocument.body.innerHTML) {
+				ele.style.paddingTop = "100px";
+				ele.style.fontSize = "0.75em";
+				ele.innerHTML = "多谢合作.";
+			}
+		}
 	};
 </script>
 </head>
@@ -105,8 +129,8 @@
 			<div class="title2">签到处</div>
 		</div>
 		<div class="checkincontainer">
-			<div class="formcontainer">
-				<form>
+			<div class="formcontainer" id="formcontainer">
+				<form action="invitationServlet.do" target="submitFrame" name="form1" id="form1" method="post">
 					<ul>
 						<li><input type="text" id="guestName" name="guestName" placeholder="尊姓大名" class="guestname" /></li>
 						<li class="attendanceli">
@@ -123,6 +147,6 @@
 			</div>
 		</div>
 	</div>
-	<iframe name="submitFrame" src="" hidden="true"></iframe>
+	<iframe name="submitFrame" id="submitFrame" src="" hidden="true"></iframe>
 </body>
 </html>
