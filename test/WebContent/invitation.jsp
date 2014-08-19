@@ -16,7 +16,7 @@
 <script>
 	var imgUrl = "http://59.46.100.104:8090/test/images/shareimg.jpg";
 	var lineLink = "http://59.46.100.104:8090/test/invitation.jsp";
-	var descContent = '徐寒李娇媚要结婚啦，特邀请您来参加我们的婚礼。为安排桌位请在喜帖最下面留下回执。';
+	var descContent = '徐寒李娇媚要结婚啦，特邀您来参加我们的婚礼。请在喜帖最下方留下回执。';
 	var shareTitle = '婚礼喜帖';
 	var appid = '';
 
@@ -135,9 +135,8 @@
 						<li><input type="text" id="guestName" name="guestName" placeholder="尊姓大名" class="guestname" /></li>
 						<li class="attendanceli">
 							<div class="attendcontainer">
-								<label class="attendance"><input type="radio" name="attendance" value="0"><span>钱到</span></label> <label class="attendance"><input
-									type="radio" name="attendance" value="1" checked="checked"><span>人到</span></label> <label class="attendance"><input type="radio"
-									name="attendance" value="2"><span>带家属到</span></label>
+								<label class="attendance"><input type="radio" name="attendance" value="0"><span>钱到</span></label> <label class="attendance"><input type="radio" name="attendance" value="1"
+									checked="checked"><span>人到</span></label> <label class="attendance"><input type="radio" name="attendance" value="2"><span>带家属到</span></label>
 							</div>
 						</li>
 						<li><textarea rows="2" cols="" id="remark" name='remark' placeholder="还有什么要说的吗？比如：我要和单身姑娘们一桌，或者，我是单身姑娘。"></textarea></li>
