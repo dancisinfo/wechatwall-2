@@ -186,11 +186,10 @@ body {
 	font-size: 0.75em;
 	margin: 0.5em auto;
 	overflow: hidden;
-	padding: 0.7em 5px;
+	padding: 5px;
 	position: relative;
-	text-overflow: ellipsis;
-	white-space: nowrap;
 	border-style: solid;
 	border-width: 1px;
 	font-weight: 700;
+	height: 30px;
 }

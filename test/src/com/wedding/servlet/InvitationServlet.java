@@ -35,12 +35,12 @@ public class InvitationServlet extends HttpServlet {
 			throws ServletException, IOException {
 		PrintWriter pw = resp.getWriter();
 		Boolean result = true;
-		resp.setContentType("text/html; charset=UTF-8");
+		req.setCharacterEncoding("gbk");
+		resp.setContentType("text/html; charset=gbk");
 		try {
 			String name = req.getParameter("guestName").trim();
 			String remark = req.getParameter("remark");
-			Integer attend = Integer
-					.valueOf(req.getParameter("attendance"));
+			Integer attend = Integer.valueOf(req.getParameter("attendance"));
 			String sql = "insert into `guest_list` (name,attend_flag,note) values (?,?,?)";
 			Object[] parms = new Object[3];
 			parms[0] = name;

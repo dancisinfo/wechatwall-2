@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<%@ page language="java" contentType="text/html; charset=gbk" pageEncoding="utf8"%>
+<%@ page language="java" contentType="text/html; charset=gbk" pageEncoding="gbk"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -7,17 +7,17 @@
 <meta name="format-detection" content="telephone=no" />
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-<meta http-equiv="content-type" content="text/html; charset=utf8">
+<meta http-equiv="content-type" content="text/html; charset=gbk">
 <meta name="HandheldFriendly" content="true">
 <meta name="apple-touch-fullscreen" content="yes" />
-<title>å©šç¤¼å–œå¸–</title>
+<title>»éÀñÏ²Ìû</title>
 <link href="css/invitation.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" media="only screen and (-webkit-min-device-pixel-ratio: 2)" type="text/css" href="css/highdpi.css" />
 <script>
 	var imgUrl = "http://59.46.100.104:8090/test/images/shareimg.jpg";
 	var lineLink = "http://59.46.100.104:8090/test/invitation.jsp";
-	var descContent = 'å¾å¯’æå¨‡åªšè¦ç»“å©šå•¦ï¼Œç‰¹é‚€è¯·æ‚¨æ¥å‚åŠ æˆ‘ä»¬çš„å©šç¤¼ã€‚ä¸ºå®‰æ’æ¡Œä½è¯·åœ¨å–œå¸–æœ€ä¸‹é¢ç•™ä¸‹å›æ‰§ã€‚';
-	var shareTitle = 'å©šç¤¼å–œå¸–';
+	var descContent = 'Ğìº®Àî½¿ÃÄÒª½á»éÀ²£¬ÌØÑûÇëÄúÀ´²Î¼ÓÎÒÃÇµÄ»éÀñ¡£Îª°²ÅÅ×ÀÎ»ÇëÔÚÏ²Ìû×îÏÂÃæÁôÏÂ»ØÖ´¡£';
+	var shareTitle = '»éÀñÏ²Ìû';
 	var appid = '';
 
 	function shareFriend() {
@@ -53,19 +53,19 @@
 		});
 	}
 
-	// å½“å¾®ä¿¡å†…ç½®æµè§ˆå™¨å®Œæˆå†…éƒ¨åˆå§‹åŒ–åä¼šè§¦å‘WeixinJSBridgeReadyäº‹ä»¶ã€‚
+	// µ±Î¢ĞÅÄÚÖÃä¯ÀÀÆ÷Íê³ÉÄÚ²¿³õÊ¼»¯ºó»á´¥·¢WeixinJSBridgeReadyÊÂ¼ş¡£
 	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-		// å‘é€ç»™å¥½å‹
+		// ·¢ËÍ¸øºÃÓÑ
 		WeixinJSBridge.on('menu:share:appmessage', function(argv) {
 			shareFriend();
 		});
 
-		// åˆ†äº«åˆ°æœ‹å‹åœˆ
+		// ·ÖÏíµ½ÅóÓÑÈ¦
 		WeixinJSBridge.on('menu:share:timeline', function(argv) {
 			shareTimeline();
 		});
 
-		// åˆ†äº«åˆ°å¾®åš
+		// ·ÖÏíµ½Î¢²©
 		WeixinJSBridge.on('menu:share:weibo', function(argv) {
 			shareWeibo();
 		});
@@ -103,7 +103,7 @@
 			if (this.contentDocument.body.innerHTML) {
 				ele.style.paddingTop = "100px";
 				ele.style.fontSize = "0.75em";
-				ele.innerHTML = "å¤šè°¢åˆä½œ.";
+				ele.innerHTML = "¶àĞ»ºÏ×÷.";
 			}
 		}
 	};
@@ -114,34 +114,34 @@
 		<div class="titlebanner">
 			<div class="title1">Come and Enjoy</div>
 			<div class="subtitle1">
-				å¾å¯’&æå¨‡åªšå©šç¤¼ï¼Œæ•¬å¤‡å–œå®´<br />2014.10.18 08:30
+				Ğìº®&Àî½¿ÃÄ»éÀñ£¬¾´±¸Ï²Ñç<br />2014.10.18 08:30
 			</div>
 		</div>
 		<div class="mapbanner">
 			<div class="map">
-				<a href="http://api.map.baidu.com/geocoder?address=æ²ˆé˜³ç‡•è±ªå¤§é…’åº—&output=html" target="_blank"> <img src="images/location@2x.jpg" class="replace-2x" /></a>
+				<a href="http://api.map.baidu.com/geocoder?address=ÉòÑôÑàºÀ´ó¾Æµê&output=html" target="_blank"> <img src="images/location@2x.jpg" class="replace-2x" /></a>
 			</div>
 			<div class="address">
-				<a href="http://api.map.baidu.com/geocoder?address=æ²ˆé˜³ç‡•è±ªå¤§é…’åº—&output=html" target="_blank">æ²ˆé˜³å’Œå¹³åŒºé•¿ç™½ä¸œè·¯18å·ç‡•è±ªå¤§é…’åº—</a>
+				<a href="http://api.map.baidu.com/geocoder?address=ÉòÑôÑàºÀ´ó¾Æµê&output=html" target="_blank">ÉòÑôºÍÆ½Çø³¤°×¶«Â·18ºÅÑàºÀ´ó¾Æµê</a>
 			</div>
 		</div>
 		<div class="checkinbanner">
-			<div class="title2">ç­¾åˆ°å¤„</div>
+			<div class="title2">Ç©µ½´¦</div>
 		</div>
 		<div class="checkincontainer">
 			<div class="formcontainer" id="formcontainer">
 				<form action="invitationServlet.do" target="submitFrame" name="form1" id="form1" method="post">
 					<ul>
-						<li><input type="text" id="guestName" name="guestName" placeholder="å°Šå§“å¤§å" class="guestname" /></li>
+						<li><input type="text" id="guestName" name="guestName" placeholder="×ğĞÕ´óÃû" class="guestname" /></li>
 						<li class="attendanceli">
 							<div class="attendcontainer">
-								<label class="attendance"><input type="radio" name="attendance" value="0"><span>é’±åˆ°</span></label> <label class="attendance"><input
-									type="radio" name="attendance" value="1" checked="checked"><span>äººåˆ°</span></label> <label class="attendance"><input type="radio"
-									name="attendance" value="2"><span>å¸¦å®¶å±åˆ°</span></label>
+								<label class="attendance"><input type="radio" name="attendance" value="0"><span>Ç®µ½</span></label> <label class="attendance"><input
+									type="radio" name="attendance" value="1" checked="checked"><span>ÈËµ½</span></label> <label class="attendance"><input type="radio"
+									name="attendance" value="2"><span>´ø¼ÒÊôµ½</span></label>
 							</div>
 						</li>
-						<li><textarea rows="2" cols="" id="remark" name='remark' placeholder="è¿˜æœ‰ä»€ä¹ˆè¦è¯´çš„å—ï¼Ÿæ¯”å¦‚ï¼šæˆ‘è¦å’Œå•èº«å§‘å¨˜ä»¬ä¸€æ¡Œï¼Œæˆ–è€…ï¼Œæˆ‘æ˜¯å•èº«å§‘å¨˜ã€‚"></textarea></li>
-						<li><input type="button" id="submitBtn" class="submitbtn" value="ç¡®è®¤å›æ‰§" /></li>
+						<li><textarea rows="2" cols="" id="remark" name='remark' placeholder="»¹ÓĞÊ²Ã´ÒªËµµÄÂğ£¿±ÈÈç£ºÎÒÒªºÍµ¥Éí¹ÃÄïÃÇÒ»×À£¬»òÕß£¬ÎÒÊÇµ¥Éí¹ÃÄï¡£"></textarea></li>
+						<li><input type="button" id="submitBtn" class="submitbtn" value="È·ÈÏ»ØÖ´" /></li>
 					</ul>
 				</form>
 			</div>
