@@ -11,16 +11,12 @@ body {
 	margin: 0 auto;
 }
 
-.placeholder1 {
-	height: 20px;
-}
-
-.banner1 {
+.titlebanner {
 	background-image: url(../images/banner1@2x.jpg);
 	background-size: 320px 180px;
 	width: 320px;
-	height: 110px;
-	padding-top: 70px;
+	height: 120px;
+	padding-top: 60px;
 }
 
 .title1 {
@@ -34,14 +30,13 @@ body {
 	border: 0.16em solid;
 	margin: 0 auto;
 	padding: 1.8% 0 1.7%;
-	font-family: 'proxima_nova_rgbold', Helvetica, Arial;
-	width: 200px;
+	width: 250px;
 }
 
 .subtitle1 {
 	color: #fff;
 	margin: 0 auto;
-	width: 200px;
+	width: 230px;
 	font-size: 0.8em;
 	font-family: 'proxima_nova_rgbold', Helvetica, Arial;
 	font-style: normal;
@@ -50,4 +45,152 @@ body {
 	text-align: center;
 	text-transform: uppercase;
 	margin-top: 20px;
+}
+
+.mapbanner {
+	background-color: #222;
+	width: 320px;
+	height: 150px;
+	padding: 20px 0;
+}
+
+.map {
+	width: 260px;
+	height: 110px;
+	margin: 0 auto;
+	border: 0.08em solid #999;
+}
+
+.map img {
+	width: 260px;
+	height: 110px;
+}
+
+.address {
+	color: #fff;
+	font-family: 'proxima_nova_rgbold', Helvetica, Arial;
+	font-style: normal;
+	font-weight: 600;
+	letter-spacing: 0.15em;
+	text-align: center;
+	text-transform: uppercase;
+	border: 0.0em solid;
+	margin: 15px auto 0;
+	padding: 1.8% 0 1.7%;
+	width: 260px;
+	font-size: 0.75em;
+}
+
+.address a {
+	color: #fff;
+	text-decoration: underline;
+}
+
+.address a:visited {
+	color: #fff;
+}
+
+.checkinbanner {
+	width: 320px;
+	height: 90px;
+}
+
+.checkincontainer {
+	width: 320px;
+	height: 215px;
+	background-color: #f3f3f3;
+}
+
+.formcontainer {
+	width: 280px;
+	margin: 0 auto;
+	padding-top: 10px;
+}
+
+.formcontainer ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+.formcontainer ul li {
+	width: 100%;
+	margin: 10px 0;
+}
+
+.formcontainer .guestname {
+	padding: 5px;
+	min-width: 260px;
+	max-width: 260px;
+	font-size: 0.75em;
+	font-family: 'proxima_nova_rgbold', Helvetica, Arial;
+}
+
+.formcontainer .attendance {
+	color: #333;
+	width: 88px;
+	background-color: #EFEFEF;
+	border: 1px solid #D0D0D0;
+	overflow: auto;
+	float: left;
+	overflow: auto;
+}
+
+.attendanceli {
+	height: 30px;
+}
+
+.attendcontainer {
+	min-width: 270px;
+	max-width: 270px;
+	height: 25px;
+	margin: 0 auto;
+}
+
+.attendanceli label span {
+	text-align: center;
+	padding: 7px 0px;
+	display: block;
+	font-size: 0.75em;
+	font-family: 'proxima_nova_rgbold', Helvetica, Arial;
+}
+
+.attendanceli label input {
+	display: none;
+}
+
+.attendanceli input:checked+span {
+	background-color: #404040;
+	color: #F7F7F7;
+}
+
+.formcontainer textarea {
+	padding: 5px;
+	min-width: 260px;
+	max-width: 260px;
+	font-size: 0.75em;
+	font-family: 'proxima_nova_rgbold', Helvetica, Arial;
+}
+
+.formcontainer .submitbtn {
+	background-color: #f6f6f6;
+	border-color: #ddd;
+	color: #333;
+	-moz-appearance: none;
+	box-sizing: border-box;
+	width: 270px;
+	-moz-user-select: none;
+	cursor: pointer;
+	display: block;
+	font-size: 0.75em;
+	margin: 0.5em auto;
+	overflow: hidden;
+	padding: 0.7em 5px;
+	position: relative;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	border-style: solid;
+	border-width: 1px;
+	font-weight: 700;
 }

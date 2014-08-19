@@ -74,18 +74,55 @@
 <script type="text/javascript">
 	var submiting = false;
 	window.onload = function() {
+		function highdpi_init() {
+			var els = document.getElementsByClassName("replace-2x");
+			for (var i = 0; i < els.length; i++) {
+				els[i].src = els[i].src.replace(".jpg", "@2x.jpg");
+			}
+		}
 
+		// highdpi_init();
 	};
 </script>
 </head>
 <body>
 	<div class="invitationmain">
-		<div class="banner1">
+		<div class="titlebanner">
 			<div class="title1">Come and Enjoy</div>
 			<div class="subtitle1">
-				徐寒&李娇媚婚礼，敬备喜宴<br />2014.10.18
+				徐寒&李娇媚婚礼，敬备喜宴<br />2014.10.18 08:30
+			</div>
+		</div>
+		<div class="mapbanner">
+			<div class="map">
+				<a href="http://api.map.baidu.com/geocoder?address=沈阳燕豪大酒店&output=html" target="_blank"> <img src="images/location@2x.jpg" class="replace-2x" /></a>
+			</div>
+			<div class="address">
+				<a href="http://api.map.baidu.com/geocoder?address=沈阳燕豪大酒店&output=html" target="_blank">沈阳和平区长白东路18号燕豪大酒店</a>
+			</div>
+		</div>
+		<div class="checkinbanner">
+			<div class="title2">签到处</div>
+		</div>
+		<div class="checkincontainer">
+			<div class="formcontainer">
+				<form>
+					<ul>
+						<li><input type="text" id="guestName" name="guestName" placeholder="尊姓大名" class="guestname" /></li>
+						<li class="attendanceli">
+							<div class="attendcontainer">
+								<label class="attendance"><input type="radio" name="attendance" value="0"><span>钱到</span></label> <label class="attendance"><input
+									type="radio" name="attendance" value="1" checked="checked"><span>人到</span></label> <label class="attendance"><input type="radio"
+									name="attendance" value="2"><span>带家属到</span></label>
+							</div>
+						</li>
+						<li><textarea rows="2" cols="" id="remark" name='remark' placeholder="还有什么要说的吗？比如：我要和单身姑娘们一桌，或者，我是单身姑娘。"></textarea></li>
+						<li><input type="button" id="submitBtn" class="submitbtn" value="确认回执" /></li>
+					</ul>
+				</form>
 			</div>
 		</div>
 	</div>
+	<iframe name="submitFrame" src="" hidden="true"></iframe>
 </body>
 </html>

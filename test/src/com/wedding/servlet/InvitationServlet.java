@@ -40,7 +40,7 @@ public class InvitationServlet extends HttpServlet {
 			String name = req.getParameter("guestName").trim();
 			String remark = req.getParameter("remark");
 			Integer attend = Integer
-					.valueOf(req.getParameter("radio-choice-1"));
+					.valueOf(req.getParameter("attendance"));
 			String sql = "insert into `guest_list` (name,attend_flag,note) values (?,?,?)";
 			Object[] parms = new Object[3];
 			parms[0] = name;
