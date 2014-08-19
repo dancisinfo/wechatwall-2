@@ -171,6 +171,7 @@ body {
 	max-width: 260px;
 	font-size: 0.75em;
 	font-family: 'proxima_nova_rgbold', Helvetica, Arial;
+	resize: none;
 }
 
 .formcontainer .submitbtn {
